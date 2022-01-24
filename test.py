@@ -1,0 +1,2 @@
+from stroke_prediction.exploration import analyse_de_forme
+
