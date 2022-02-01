@@ -64,7 +64,7 @@ def run(preprocess, modelisation):
             # plt.show()
             pass
         cv = StratifiedKFold(5)
-        print(type(modele))
+        print(X_test)
         y_pred = selection_modele.modele_finale(modele, X_test, -4.7)
         
         print("La sensibilité du modèle choisi est de : {} %.".format(recall_score(y_test, y_pred).round(3)))
