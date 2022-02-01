@@ -1,6 +1,6 @@
 
 from stroke_prediction.preprocess.preprocess import Traitement
-from stroke_prediction import plt, RandomizedSearchCV
+from stroke_prediction import plt, RandomizedSearchCV, np
 
 class SelectionModele(Traitement):
     """Cette classe permet d'effectuer plusieurs entraînement avec un certain nombre de modèles et hérite
@@ -73,7 +73,7 @@ class SelectionModele(Traitement):
         grid.fit(X_train, y_train)
         print("Les meilleurs paramètres : \n", grid.best_params_)
         
-    def modele_finale(modele, X, seuil = 0):
+    def modele_finale(self, modele, X, seuil = 0):
         """Modèle de prédiction basé sur le modèle fourni en paramètre.
         Args:
             modele (pipeline): Le modèle choisi

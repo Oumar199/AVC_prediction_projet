@@ -18,7 +18,7 @@ class AnalyseForme:
             print("Type de la colonne {} : {}".format(colonne, self.data_frame[colonne].dtype))
             print("-"*20)
             
-    def recuperer_colonnes_categorielles(self, categorical_columns_sup):
+    def recuperer_colonnes_categorielles(self, categorical_columns_sup = ["hypertension", "heart_disease"]):
         categorical_columns = self.data_frame.select_dtypes('object').columns.tolist()
         categorical_columns.extend(categorical_columns_sup)
         return categorical_columns

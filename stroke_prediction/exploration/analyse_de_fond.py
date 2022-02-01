@@ -11,11 +11,11 @@ class AnalyseFond(AnalyseForme):
     def __init__(self, path = "stroke_prediction/donnees/healthcare-dataset-stroke-data.csv"):
         super().__init__(path)
     
-    def visualisation_cible(self, cible):
+    def visualisation_cible(self, cible = "stroke"):
         proportions = self.data_frame[cible].value_counts(normalize = True)*100
         print("Les proportions des classes de la cible sont : \n", proportions)
         proportions.plot.pie(labels=self.data_frame[cible].unique())
-        plt.title("Diagramme en camembert de : ", cible)
+        plt.title("Diagramme en camembert de : " + str(cible))
         plt.ylabel('')
         plt.show()
         self.data_frame[cible] =  self.data_frame[cible].astype("category")

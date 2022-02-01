@@ -131,7 +131,7 @@ class Traitement:
         
         return modele
     
-    def evaluation(self, modele, nom_modele, X_train, X_test, y_train, y_test, plot_roc = False):
+    def evaluation(self, modele, nom_modele, X_train, X_test, y_train, y_test, plot_roc = False, show_figure = False):
         """Cette fonction permet d'évaluer un modèle
         """
         from sklearn.metrics import confusion_matrix, accuracy_score, classification_report
@@ -159,4 +159,6 @@ class Traitement:
         axs[1].set_title(f"Courbe ROC {nom_modele}")
          
         fig.tight_layout(w_pad = 3)
+        if show_figure:
+            plt.show()
         
