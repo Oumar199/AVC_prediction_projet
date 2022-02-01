@@ -3,7 +3,7 @@ from stroke_prediction import pd, px
 
 class AnalyseForme:
     def __init__(self, path = "stroke_prediction/donnees/healthcare-dataset-stroke-data.csv"):
-        self.data_frame = pd.read_csv("stroke_prediction/donnees/healthcare-dataset-stroke-data.csv")
+        self.data_frame = pd.read_csv(path)
         print("Récupération des données effectuée avec succès :\n", self.data_frame.head(10))
             
     def identification_cible(self, nom_cible):
@@ -18,9 +18,9 @@ class AnalyseForme:
             print("Type de la colonne {} : {}".format(colonne, self.data_frame[colonne].dtype))
             print("-"*20)
             
-    def recuperer_colonnes_categorielles(self):
-        categorical_columns = ["hypertension", "heart_disease"]
-        categorical_columns.extend(self.data_frame.select_dtypes('object').columns)
+    def recuperer_colonnes_categorielles(self, categorical_columns_sup):
+        categorical_columns = self.data_frame.select_dtypes('object').columns.tolist()
+        categorical_columns.extend(categorical_columns_sup)
         return categorical_columns
     
     def verifier_valeurs_object(self):
@@ -44,4 +44,7 @@ class AnalyseForme:
         na_values = self.data_frame.isna()
         fig = px.imshow(na_values, title = "Visualisation des données manquantes")
         fig.show()
+        
+    def identification_valeurs_redondantes(self):
+        print("Nombre de valeurs redondantes : ", self.data_frame.duplicated().sum())
         
