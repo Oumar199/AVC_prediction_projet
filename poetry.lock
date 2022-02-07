@@ -356,6 +356,38 @@ scipy = "*"
 six = "*"
 
 [[package]]
+name = "imbalanced-learn"
+version = "0.9.0"
+description = "Toolbox for imbalanced dataset in machine learning."
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+joblib = ">=0.11"
+numpy = ">=1.14.6"
+scikit-learn = ">=1.0.1"
+scipy = ">=1.1.0"
+threadpoolctl = ">=2.0.0"
+
+[package.extras]
+docs = ["pandas (>=0.25.0)", "tensorflow (>=2.4.3)", "keras (>=2.4.3)", "matplotlib (>=2.2.3)", "seaborn (>=0.9.0)", "memory-profiler (>=0.57.0)", "sphinx (>=4.2.0)", "sphinx-gallery (>=0.7.0)", "numpydoc (>=1.0.0)", "sphinxcontrib-bibtex (>=2.4.1)", "pydata-sphinx-theme (>=0.7.2)"]
+examples = ["pandas (>=0.25.0)", "tensorflow (>=2.4.3)", "keras (>=2.4.3)", "matplotlib (>=2.2.3)", "seaborn (>=0.9.0)"]
+optional = ["pandas (>=0.25.0)", "tensorflow (>=2.4.3)", "keras (>=2.4.3)"]
+tests = ["pandas (>=0.25.0)", "tensorflow (>=2.4.3)", "keras (>=2.4.3)", "pytest (>=5.0.1)", "pytest-cov (>=2.9.0)", "flake8 (>=3.8.2)", "black (>=21.6b0)", "mypy (>=0.770)"]
+
+[[package]]
+name = "imblearn"
+version = "0.0"
+description = "Toolbox for imbalanced dataset in machine learning."
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+imbalanced-learn = "*"
+
+[[package]]
 name = "ipykernel"
 version = "6.7.0"
 description = "IPython Kernel for Jupyter"
@@ -1451,7 +1483,7 @@ notebook = ">=4.4.1"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "31d53e25c5267bf8c809f8c57c48f6c277e3bbb26ededa78bdb14886c02329bc"
+content-hash = "3f0371eea76da959daae5e7c1ef3dc06f037345ab176666ee405424fdde8443c"
 
 [metadata.files]
 appdirs = [
@@ -1722,6 +1754,14 @@ idna = [
 ]
 imagehash = [
     {file = "ImageHash-4.2.1.tar.gz", hash = "sha256:a4af957814bc9832d9241247ff03f76e778f890c18147900b4540af124e93011"},
+]
+imbalanced-learn = [
+    {file = "imbalanced-learn-0.9.0.tar.gz", hash = "sha256:836a4c137cc3c10310d4f6cd5ec34600ff488d7f8c243a997c3f9b551c91d0b2"},
+    {file = "imbalanced_learn-0.9.0-py3-none-any.whl", hash = "sha256:ed2df83f1247b03fbc0362f5ffbf6f8bd76d02a7e0ebfef3be1ead39683ca10d"},
+]
+imblearn = [
+    {file = "imblearn-0.0-py2.py3-none-any.whl", hash = "sha256:d42c2d709d22c00d2b9a91e638d57240a8b79b4014122d92181fcd2549a2f79a"},
+    {file = "imblearn-0.0.tar.gz", hash = "sha256:d8fbb662919c1b16f438ad91a8256220e53bcf6815c9ad5502c518b798de34f2"},
 ]
 ipykernel = [
     {file = "ipykernel-6.7.0-py3-none-any.whl", hash = "sha256:6203ccd5510ff148e9433fd4a2707c5ce8d688f026427f46e13d7ebf9b3e9787"},
