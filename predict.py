@@ -3,9 +3,10 @@ import argparse
 from stroke_prediction import joblib, pd
 
 def predict(age, avg_glucose_level):
-    model = joblib.load("stroke_prediction/modeles/logistic_model.joblib")
+    model = joblib.load("stroke_prediction/modeles/logistic_model_good.joblib")
     sample = pd.DataFrame({"age": [age], "avg_glucose_level": [avg_glucose_level]})
     y_pred = model.predict(sample)
+    print("Résultat du test : ")
     print("Le patient est atteint." if y_pred == 1 else "Le patient n'est pas atteint.")
 
 if __name__ == "__main__":

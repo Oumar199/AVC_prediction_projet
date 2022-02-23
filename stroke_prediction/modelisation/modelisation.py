@@ -5,8 +5,12 @@ from stroke_prediction import plt, RandomizedSearchCV, np
 class SelectionModele(Traitement):
     """Cette classe permet d'effectuer plusieurs entraînement avec un certain nombre de modèles et hérite
     des méthodes de la classe Traitement
-    Attributes:
-        None    
+
+    Args:
+
+    Returns:
+
+    
     """
     
     def __init__(self):
@@ -14,6 +18,16 @@ class SelectionModele(Traitement):
     
     def multiple_entrainements(self, X_train, X_test, y_train, y_test):
         """
+
+        Args:
+          X_train: 
+          X_test: 
+          y_train: 
+          y_test: 
+
+        Returns:
+
+        
         """
         from sklearn.compose import make_column_transformer, make_column_selector
         from sklearn.pipeline import make_pipeline
@@ -52,13 +66,15 @@ class SelectionModele(Traitement):
         
     def courbe_sensibilite_precision(self, modele, X_test, y_test):
         """Une fonction qui permet de tracer la courbe de Precision-Recall pour le choix d'un seuil.
+
         Args:
-            modele (pipeline): Le modèle choisi
-            X_test (pandas.DataFrame): Les caractéristiques de test
-            y_test (pandas.DataFrame): Les données test de la cible
-        
+          modele(pipeline): Le modèle choisi
+          X_test(pandas.DataFrame): Les caractéristiques de test
+          y_test(pandas.DataFrame): Les données test de la cible
+
         Returns:
-            None
+
+        
         """
         from sklearn.metrics import precision_recall_curve
         
@@ -69,15 +85,33 @@ class SelectionModele(Traitement):
         plt.legend()
         
     def recherche_par_grilles(self, X_train, y_train, modele, params, cv = 5):
+        """
+
+        Args:
+          X_train: 
+          y_train: 
+          modele: 
+          params: 
+          cv: (Default value = 5)
+
+        Returns:
+
+        
+        """
         grid = RandomizedSearchCV(modele, params, n_iter = 20, scoring = "f1", cv = cv, random_state = 21)
         grid.fit(X_train, y_train)
         print("Les meilleurs paramètres : \n", grid.best_params_)
         
     def modele_finale(self, modele, X, seuil = 0):
         """Modèle de prédiction basé sur le modèle fourni en paramètre.
+
         Args:
-            modele (pipeline): Le modèle choisi
-            X (pandas.DataFrame ou Autres): les données à prédire
-            seuil (float): Le seuil de prédiction
+          modele(pipeline): Le modèle choisi
+          X(pandas.DataFrame ou Autres): les données à prédire
+          seuil(float, optional): Le seuil de prédiction (Default value = 0)
+
+        Returns:
+
+        
         """
         return modele.decision_function(X) > seuil
