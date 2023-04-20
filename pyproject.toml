@@ -2,7 +2,7 @@
 name = "AVC_prediction_projet"
 version = "0.1.0"
 description = ""
-authors = ["= <=>"]
+authors = ["Oumar Kane <oumar.kane@univ-thies.sn>"]
 
 [tool.poetry.dependencies]
 python = "^3.9"
